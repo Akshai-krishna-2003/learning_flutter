@@ -70,26 +70,24 @@ class _TextWidgetChangeState extends State<TextWidgetChange> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            texts[currentIndex],
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-            onPressed: () {
-              setState(() {
-                currentIndex = (currentIndex + 1) % texts.length;
-              });
-            },
-            child: Icon(Icons.refresh, color: Colors.black),
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          texts[currentIndex],
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 20),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+          onPressed: () {
+            setState(() {
+              currentIndex = (currentIndex + 1) % texts.length;
+            });
+          },
+          child: Icon(Icons.refresh, color: Colors.black),
+        ),
+      ],
     );
   }
 }
