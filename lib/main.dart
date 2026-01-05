@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_center.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_container.dart';
+import 'package:learning_flutter/flutter_ui_learning/learn_rows_columns.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_text_widget.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_to_add_image.dart';
 import 'package:learning_flutter/flutter_ui_learning/learning_button_types.dart';
@@ -32,14 +33,25 @@ class HomeScreen extends StatelessWidget {
           LearnCenter(),
           LearnTextWidget(),
           LearningButtonTypes(),
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LearnToAddImage()),
-              );
-            },
-            child: Text('Learn to Add Image'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LearnToAddImage()),
+                  );
+                },
+                child: Text('Learn to Add Image'),
+              ),
+              ElevatedButton(onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LearnRowsColumns()),
+                  );
+                }, child: Text('Rows and Columns'),)
+            ],
           ),
         ],
       ),
