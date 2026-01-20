@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_center.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_container.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_inkwell.dart';
+import 'package:learning_flutter/flutter_ui_learning/learn_listview.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_rows_columns.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_scrollview.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_text_widget.dart';
@@ -75,6 +76,15 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LearnScrollview()),
+              );
+            },
+          ),
+          InkWell(
+            child: Text('Learn Listview'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LearnListView()),
               );
             },
           ),

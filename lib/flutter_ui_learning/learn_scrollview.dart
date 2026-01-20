@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// Scroll view is such a concept where all the components of the widget can become scrollable
+/// Just by using something called SingleChildScrollView
+
 class LearnScrollview extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
