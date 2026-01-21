@@ -10,6 +10,7 @@ import 'package:learning_flutter/flutter_ui_learning/learn_text_widget.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_to_add_image.dart';
 import 'package:learning_flutter/flutter_ui_learning/learning_button_types.dart';
 import 'package:learning_flutter/flutter_ui_learning/learning_list_tile.dart';
+import 'package:learning_flutter/flutter_ui_learning/mapping_lists_to_widgets.dart';
 
 /// Start of a flutter app
 /// Inside runApp --> we call runApp function
@@ -115,6 +116,15 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LearnCallBackFunction()),
+              );
+            },
+          ),
+          InkWell(
+            child: Text('Mapping Lists to Widgets'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MappingListsToWidgets()),
               );
             },
           ),
