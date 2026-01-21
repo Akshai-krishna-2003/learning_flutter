@@ -8,6 +8,7 @@ import 'package:learning_flutter/flutter_ui_learning/learn_scrollview.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_text_widget.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_to_add_image.dart';
 import 'package:learning_flutter/flutter_ui_learning/learning_button_types.dart';
+import 'package:learning_flutter/flutter_ui_learning/learning_list_tile.dart';
 
 /// Start of a flutter app
 /// Inside runApp --> we call runApp function
@@ -95,6 +96,15 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => LearnListView()),
+              );
+            },
+          ),
+          InkWell(
+            child: Text('Learn Listview'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LearningListTile()),
               );
             },
           ),
