@@ -9,6 +9,11 @@ import 'package:learning_flutter/flutter_ui_learning/learn_text_widget.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_to_add_image.dart';
 import 'package:learning_flutter/flutter_ui_learning/learning_button_types.dart';
 
+/// Start of a flutter app
+/// Inside runApp --> we call runApp function
+/// It calls the class MaterialApp (Android like UI) or CapertinoApp (Apple like UI)
+/// Universal UI will run even if we dont use conditional programming
+/// 
 void main() {
   runApp(const MyApp());
 }
@@ -18,7 +23,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flutter Demo', home: HomeScreen());
+    return MaterialApp(title: 'Flutter Demo', // App title
+    theme: ThemeData(   // This is used to provide theme of the app
+      primarySwatch: Colors.cyan,
+    ),
+     home: HomeScreen(), // The first screen to show on the app
+     );
   }
 }
 

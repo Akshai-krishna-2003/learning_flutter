@@ -19,10 +19,16 @@ class LearnListViewState extends State<LearnListView> {
 
   List<Todo> todos = [];
 
+  int responseCode = 0;
+
   Future<void> getData() async {
     final response = await http.get(url);
 
-    if (response.statusCode == 200) {
+    setState(() {
+      responseCode = response.statusCode;
+    });
+    
+    if (responseCode == 200) {
       final List decoded = jsonDecode(response.body);
       setState(() {
         todos = decoded.map((e) => Todo.fromJson(e)).toList();
@@ -38,17 +44,22 @@ class LearnListViewState extends State<LearnListView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('To Do List')),
-      body: ListView.builder(
-        itemCount: todos.length,
-        itemBuilder: (context, index) {
-          final todo = todos[index];
-          return ToDoView(
-            title: todo.title,
-            ifCompleted: todo.completed,
-          );
-        },
+    if (responseCode == 200) {
+      return Scaffold(
+        appBar: AppBar(title: Text('To Do List')),
+        body: ListView.builder(
+          itemCount: todos.length,
+          itemBuilder: (context, index) {
+            final todo = todos[index];
+            return ToDoView(title: todo.title, ifCompleted: todo.completed);
+          },
+        ),
+      );
+    }
+    return Center(
+      child: Text(
+        'FAAAA RESPONSE IS $responseCode',
+        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -58,11 +69,7 @@ class ToDoView extends StatelessWidget {
   final String title;
   final bool ifCompleted;
 
-  const ToDoView({
-    required this.title,
-    required this.ifCompleted,
-    super.key,
-  });
+  const ToDoView({required this.title, required this.ifCompleted, super.key});
 
   @override
   Widget build(BuildContext context) {
