@@ -13,41 +13,40 @@ class LearningButtonTypes extends StatefulWidget {
 class _LearningButtonTypesState extends State<LearningButtonTypes> {
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Row(
-        children: [
-          // Text Button --> A simple button with text label
-          Expanded(
-            child: TextButton(
-              onPressed: () {
-                showToast('Text Button Pressed');
-              },
-              child: Text('Text Button'),
-              onLongPress: () {
-                showToast('Text Button Long Pressed');
-              },
-            ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Container(
+          width: constraints.maxWidth,
+          child: Row(
+            children: [
+              // Text Button --> A simple button with text label
+              TextButton(
+                onPressed: () {
+                  showToast('Text Button Pressed');
+                },
+                child: Text('Text Button'),
+                onLongPress: () {
+                  showToast('Text Button Long Pressed');
+                },
+              ),
+              // Elevated Button --> A button with a raised appearance
+              ElevatedButton(
+                onPressed: () {
+                  showToast('Elevated Button Pressed');
+                },
+                child: Text('Elevated Button'),
+              ),
+              // Outlined Button --> A button with an outlined border
+              OutlinedButton(
+                onPressed: () {
+                  showToast('Outlined Button Pressed');
+                },
+                child: Text('Outlined Button', textAlign: TextAlign.center),
+              ),
+            ],
           ),
-          // Elevated Button --> A button with a raised appearance
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {
-                showToast('Elevated Button Pressed');
-              },
-              child: Text('Elevated Button'),
-            ),
-          ),
-          // Outlined Button --> A button with an outlined border
-          Expanded(
-            child: OutlinedButton(
-              onPressed: () {
-                showToast('Outlined Button Pressed');
-              },
-              child: Text('Outlined Button', textAlign: TextAlign.center),
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 

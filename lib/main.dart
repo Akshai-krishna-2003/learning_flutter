@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/flutter_ui_learning/adding_decoration_container.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_call_back_function.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_center.dart';
 import 'package:learning_flutter/flutter_ui_learning/learn_container.dart';
@@ -16,7 +17,7 @@ import 'package:learning_flutter/flutter_ui_learning/mapping_lists_to_widgets.da
 /// Inside runApp --> we call runApp function
 /// It calls the class MaterialApp (Android like UI) or CapertinoApp (Apple like UI)
 /// Universal UI will run even if we dont use conditional programming
-/// 
+///
 void main() {
   runApp(const MyApp());
 }
@@ -26,12 +27,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flutter Demo', // App title
-    theme: ThemeData(   // This is used to provide theme of the app
-      primarySwatch: Colors.cyan,
-    ),
-     home: HomeScreen(), // The first screen to show on the app
-     );
+    return MaterialApp(
+      title: 'Flutter Demo', // App title
+      theme: ThemeData(
+        // This is used to provide theme of the app
+        primarySwatch: Colors.cyan,
+      ),
+      home: HomeScreen(), // The first screen to show on the app
+    );
   }
 }
 
@@ -40,95 +43,115 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter Demo Home Page')),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          LearnContainer(),
-          SizedBox(height: 20),
-          LearnCenter(),
-          LearnTextWidget(),
-          LearningButtonTypes(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LearnToAddImage()),
-                  );
-                },
-                child: Text('Learn to Add Image'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LearnRowsColumns()),
-                  );
-                },
-                child: Text('Rows and Columns'),
-              ),
-            ],
-          ),
-          InkWell(
-            child: Center(
-              child: Container(width: 200, height: 200, color: Colors.amber),
+      body: SafeArea(
+        child: ListView(
+          // We use ListView to make the screen scrollable instead of using single child scroll view and column
+          children: [
+            LearnContainer(),
+            SizedBox(height: 20),
+            LearnCenter(),
+            LearnTextWidget(),
+            LearningButtonTypes(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LearnToAddImage(),
+                      ),
+                    );
+                  },
+                  child: Text('Learn to Add Image'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LearnRowsColumns(),
+                      ),
+                    );
+                  },
+                  child: Text('Rows and Columns'),
+                ),
+              ],
             ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LearnInkwell()),
-              );
-            },
-          ),
-          InkWell(
-            child: Text('Learn Scrollview'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LearnScrollview()),
-              );
-            },
-          ),
-          InkWell(
-            child: Text('Learn Listview'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LearnListView()),
-              );
-            },
-          ),
-          InkWell(
-            child: Text('Learn Listview'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LearningListTile()),
-              );
-            },
-          ),
-          InkWell(
-            child: Text('Learn Call Back Functions'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LearnCallBackFunction()),
-              );
-            },
-          ),
-          InkWell(
-            child: Text('Mapping Lists to Widgets'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MappingListsToWidgets()),
-              );
-            },
-          ),
-        ],
+            InkWell(
+              child: Center(
+                child: Container(width: 200, height: 400, color: Colors.amber),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LearnInkwell()),
+                );
+              },
+            ),
+            InkWell(
+              child: Text('Learn Scrollview'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LearnScrollview()),
+                );
+              },
+            ),
+            InkWell(
+              child: Text('Learn Listview'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LearnListView()),
+                );
+              },
+            ),
+            InkWell(
+              child: Text('Learn Listview'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LearningListTile()),
+                );
+              },
+            ),
+            InkWell(
+              child: Text('Learn Call Back Functions'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LearnCallBackFunction(),
+                  ),
+                );
+              },
+            ),
+            InkWell(
+              child: Text('Mapping Lists to Widgets'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MappingListsToWidgets(),
+                  ),
+                );
+              },
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddingDecorationContainer(),
+                  ),
+                );
+              },
+              child: Text('Adding Decoration to Container'),
+            ),
+          ],
+        ),
       ),
     );
   }
